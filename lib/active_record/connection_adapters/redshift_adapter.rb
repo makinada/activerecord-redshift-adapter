@@ -522,12 +522,12 @@ module ActiveRecord
       # DATABASE STATEMENTS ======================================
 
       # override the insert statement to get the return value - need a better way than max
-      def insert(arel, name = nil, pk = nil, id_value = nil, sequence_name = nil, binds = [])
-        sql, binds = sql_for_insert(to_sql(arel, binds), pk, id_value, sequence_name, binds)
-        exec_insert(sql, name, binds)
-        table_ref = extract_table_ref_from_insert_sql(sql)
-        select_value("select max(#{quote_column_name(pk)}) from #{table_ref}")
-      end
+#      def insert(arel, name = nil, pk = nil, id_value = nil, sequence_name = nil, binds = [])
+#        sql, binds = sql_for_insert(to_sql(arel, binds), pk, id_value, sequence_name, binds)
+#        exec_insert(sql, name, binds)
+#        table_ref = extract_table_ref_from_insert_sql(sql)
+#        select_value("select max(#{quote_column_name(pk)}) from #{table_ref}")
+#      end
 
       def explain(arel, binds = [])
         sql = "EXPLAIN #{to_sql(arel, binds)}"
